@@ -334,10 +334,10 @@ private fun PowerControl(state: FlashlightState, onToggle: () -> Unit) {
             drawCircle(Border, radius = size.minDimension * .44f, style = Stroke(1.dp.toPx()))
             repeat(48) { index ->
                 val angle = index * PI / 24
-                val r = size.minDimension * .44f
-                val outer = Offset(center.x + cos(angle).toFloat() * r, center.y + sin(angle).toFloat() * r)
-                val innerR = r - if (index % 4 == 0) 7.dp.toPx() else 3.dp.toPx()
-                val inner = Offset(center.x + cos(angle).toFloat() * innerR, center.y + sin(angle).toFloat() * innerR)
+                val ringRadius = size.minDimension * .44f
+                val outer = Offset(center.x + cos(angle).toFloat() * ringRadius, center.y + sin(angle).toFloat() * ringRadius)
+                val innerRadius = ringRadius - if (index % 4 == 0) 7.dp.toPx() else 3.dp.toPx()
+                val inner = Offset(center.x + cos(angle).toFloat() * innerRadius, center.y + sin(angle).toFloat() * innerRadius)
                 drawLine(if (state.isOn) Amber.copy(alpha = .55f) else Border, inner, outer, 1.dp.toPx())
             }
         }
@@ -422,10 +422,10 @@ internal fun CustomTimerDialog(initialSeconds: Int, onDismiss: () -> Unit, subje
     val Muted = MaterialTheme.colorScheme.onSurfaceVariant
     var minutes by rememberSaveable { mutableStateOf((initialSeconds / 60).toString()) }
     var seconds by rememberSaveable { mutableStateOf((initialSeconds % 60).toString()) }
-    val min = minutes.toIntOrNull() ?: 0
-    val sec = seconds.toIntOrNull() ?: 0
-    val total = min * 60 + sec
-    val valid = sec in 0..59 && total in 1..86400
+    val minuteCount = minutes.toIntOrNull() ?: 0
+    val secondCount = seconds.toIntOrNull() ?: 0
+    val total = minuteCount * 60 + secondCount
+    val valid = secondCount in 0..59 && total in 1..86400
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("A little light, on your time.", fontSize = 21.sp) },
@@ -438,11 +438,11 @@ internal fun CustomTimerDialog(initialSeconds: Int, onDismiss: () -> Unit, subje
                         label = { Text("Minutes") }, singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), modifier = Modifier.weight(1f))
                     OutlinedTextField(seconds, { value -> if (value.length <= 2 && value.all(Char::isDigit)) seconds = value },
-                        label = { Text("Seconds") }, singleLine = true, isError = sec > 59,
+                        label = { Text("Seconds") }, singleLine = true, isError = secondCount > 59,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), modifier = Modifier.weight(1f))
                 }
                 Spacer(Modifier.height(10.dp))
-                Text(if (sec > 59) "Seconds must be between 0 and 59." else "Choose between 1 second and 24 hours.", color = Muted, fontSize = 11.sp)
+                Text(if (secondCount > 59) "Seconds must be between 0 and 59." else "Choose between 1 second and 24 hours.", color = Muted, fontSize = 11.sp)
                 Text("If the light is on, this restarts the countdown.", color = Muted, fontSize = 11.sp)
             }
         },

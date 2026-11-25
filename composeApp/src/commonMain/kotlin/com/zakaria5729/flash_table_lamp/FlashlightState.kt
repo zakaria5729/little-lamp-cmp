@@ -12,10 +12,10 @@ enum class DimmingMode(val label: String, val unit: String, val intervalMillis: 
 enum class RhythmMode { Auto, Custom }
 data class RhythmPhase(val lit: Boolean, val nextChangeMillis: Long)
 fun rhythmPhase(elapsedMillis: Long, onSeconds: Int, offSeconds: Int): RhythmPhase {
-    val on = onSeconds.coerceIn(1, 60) * 1000L
-    val off = offSeconds.coerceIn(1, 60) * 1000L
-    val position = elapsedMillis.coerceAtLeast(0) % (on + off)
-    return if (position < on) RhythmPhase(true, on - position) else RhythmPhase(false, on + off - position)
+    val onDurationMillis = onSeconds.coerceIn(1, 60) * 1000L
+    val offDurationMillis = offSeconds.coerceIn(1, 60) * 1000L
+    val position = elapsedMillis.coerceAtLeast(0) % (onDurationMillis + offDurationMillis)
+    return if (position < onDurationMillis) RhythmPhase(true, onDurationMillis - position) else RhythmPhase(false, onDurationMillis + offDurationMillis - position)
 }
 data class RhythmCommand(val enabled: Boolean, val mode: RhythmMode = RhythmMode.Auto, val onSeconds: Int = 1, val offSeconds: Int = 1)
 fun parseRhythmInput(input: String): RhythmCommand? {

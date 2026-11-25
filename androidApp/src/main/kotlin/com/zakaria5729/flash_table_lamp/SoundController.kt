@@ -224,9 +224,9 @@ class SoundController(private val context: Context, preferencesName: String = "a
 
     override fun playWithLight(screenLamp: Boolean) {
         val app = context.applicationContext as LumaApplication
-        val on = if (screenLamp) app.screenLamp.state.value.isOn else app.flashlight.state.value.isOn
+        val lightIsOn = if (screenLamp) app.screenLamp.state.value.isOn else app.flashlight.state.value.isOn
         val enabled = if (screenLamp) state.value.withScreenLamp else state.value.withFlashlight
-        if (enabled && on) lightStarted(if (screenLamp) "screen" else "flashlight") else play()
+        if (enabled && lightIsOn) lightStarted(if (screenLamp) "screen" else "flashlight") else play()
     }
 
     override fun play() {

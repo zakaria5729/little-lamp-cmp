@@ -126,9 +126,10 @@ class FlashlightController(private val context: Context) {
         if (state.value.isOn) send(FlashlightService.ACTION_RHYTHM) else FlashlightNotification(context).show()
     }
     fun setRhythmTimes(onSeconds: Int, offSeconds: Int) {
-        val on = onSeconds.coerceIn(1, 60); val off = offSeconds.coerceIn(1, 60)
-        preferences.edit { putInt("rhythm_on", on); putInt("rhythm_off", off) }
-        mutableState.update { it.copy(rhythmOnSeconds = on, rhythmOffSeconds = off) }
+        val onDurationSeconds = onSeconds.coerceIn(1, 60)
+        val offDurationSeconds = offSeconds.coerceIn(1, 60)
+        preferences.edit { putInt("rhythm_on", onDurationSeconds); putInt("rhythm_off", offDurationSeconds) }
+        mutableState.update { it.copy(rhythmOnSeconds = onDurationSeconds, rhythmOffSeconds = offDurationSeconds) }
         if (state.value.isOn) send(FlashlightService.ACTION_RHYTHM) else FlashlightNotification(context).show()
     }
 
