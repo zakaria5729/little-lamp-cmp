@@ -2,7 +2,9 @@
 
 Little Lamp is an Android app for using your phone's flashlight or screen as a light, with optional ambient sound.
 
-<img src="assets/little-lamp-android.gif" alt="Little Lamp Android app showing flashlight, color, and sound screens" width="320">
+<p align="center">
+  <img src="assets/little-lamp-android.gif" alt="Little Lamp Android app showing flashlight, color, and sound screens" width="320">
+</p>
 
 ## Features
 
