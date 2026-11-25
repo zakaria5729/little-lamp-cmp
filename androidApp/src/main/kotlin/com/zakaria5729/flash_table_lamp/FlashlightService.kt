@@ -370,7 +370,6 @@ class FlashlightService : Service() {
             try {
                 flashlight.cameraId?.let { flashlight.cameraManager.setTorchMode(it, false) }
             } catch (_: Exception) {
-                // Android also releases the torch when this process loses its camera connection.
             }
         }
         deadline = 0L
