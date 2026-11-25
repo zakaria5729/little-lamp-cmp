@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Little Lamp</string>
+    <string name="toggle_flashlight_rhythm">Toggle flashlight rhythm</string>
+    <string name="decrease_symbol" translatable="false">−</string>
+    <string name="increase_symbol" translatable="false">+</string>
+    <string name="decrease_brightness">Decrease brightness</string>
+    <string name="increase_brightness">Increase brightness</string>
+    <string name="auto_off_timer">AUTO-OFF TIMER</string>
+    <string name="timer_off" translatable="false">Off</string>
+    <string name="timer_one_minute" translatable="false">1m</string>
+    <string name="timer_five_minutes" translatable="false">5m</string>
+    <string name="timer_fifteen_minutes" translatable="false">15m</string>
+    <string name="timer_thirty_minutes" translatable="false">30m</string>
+    <string name="no_auto_off_timer">No auto-off timer</string>
+    <string name="set_timer_one_minute">Set timer to 1 min</string>
+    <string name="set_timer_five_minutes">Set timer to 5 min</string>
+    <string name="set_timer_fifteen_minutes">Set timer to 15 min</string>
+    <string name="set_timer_thirty_minutes">Set timer to 30 min</string>
+    <string name="toggle_gradual_dimming">Toggle gradual dimming</string>
+    <string name="decrease_dim_rate">Decrease dim rate</string>
+    <string name="increase_dim_rate">Increase dim rate</string>
+    <string name="change_dimming_mode">Change dimming mode</string>
+</resources>

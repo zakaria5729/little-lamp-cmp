@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="48dp"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:padding="2dp" android:background="@drawable/notification_background">
+    <TextView android:id="@+id/brightness_minus" style="@style/NotificationButton"
+        android:layout_width="40dp" android:layout_weight="0" android:text="@string/decrease_symbol"
+        android:textSize="24sp" android:contentDescription="@string/decrease_brightness" />
+    <TextView android:id="@+id/notification_brightness" android:layout_width="0dp"
+        android:layout_height="match_parent" android:layout_weight="1"
+        android:gravity="center" android:textColor="#F3CE7B" android:textSize="13sp" />
+    <TextView android:id="@+id/brightness_plus" style="@style/NotificationButton"
+        android:layout_width="40dp" android:layout_weight="0" android:text="@string/increase_symbol"
+        android:textSize="24sp" android:contentDescription="@string/increase_brightness" />
+    <TextView android:id="@+id/notification_power" style="@style/NotificationButton"
+        android:layout_width="80dp" android:layout_weight="0"
+        android:textColor="#0C1015" android:background="@drawable/notification_button_selected" />
+</LinearLayout>

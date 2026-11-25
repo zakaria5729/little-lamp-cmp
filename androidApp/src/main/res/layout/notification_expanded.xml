@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="6dp"
+    android:background="@drawable/notification_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="24dp"
+        android:gravity="center_vertical" android:paddingHorizontal="4dp">
+        <TextView android:id="@+id/notification_status" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:textColor="#929DAE" android:textSize="11sp" />
+        <Chronometer android:id="@+id/notification_countdown" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textColor="#F3CE7B" android:textSize="12sp" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="44dp" android:gravity="center_vertical">
+        <TextView android:id="@+id/brightness_minus" style="@style/NotificationButton"
+            android:layout_width="40dp" android:layout_weight="0" android:text="@string/decrease_symbol"
+            android:textSize="24sp" android:contentDescription="@string/decrease_brightness" />
+        <TextView android:id="@+id/notification_brightness" android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:textColor="#F3CE7B" android:textSize="13sp" />
+        <TextView android:id="@+id/brightness_plus" style="@style/NotificationButton"
+            android:layout_width="40dp" android:layout_weight="0" android:text="@string/increase_symbol"
+            android:textSize="24sp" android:contentDescription="@string/increase_brightness" />
+        <TextView android:id="@+id/notification_power" style="@style/NotificationButton"
+            android:layout_width="80dp" android:layout_weight="0"
+            android:textColor="#0C1015" android:background="@drawable/notification_button_selected" />
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="20dp"
+        android:gravity="center_vertical" android:paddingStart="4dp" android:paddingEnd="4dp"
+        android:text="@string/auto_off_timer" android:textSize="11sp" android:textColor="#929DAE" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="44dp">
+        <TextView android:id="@+id/timer_off" style="@style/NotificationButton" android:text="@string/timer_off" android:contentDescription="@string/no_auto_off_timer" />
+        <TextView android:id="@+id/timer_1" style="@style/NotificationButton" android:text="@string/timer_one_minute" android:contentDescription="@string/set_timer_one_minute" />
+        <TextView android:id="@+id/timer_5" style="@style/NotificationButton" android:text="@string/timer_five_minutes" android:contentDescription="@string/set_timer_five_minutes" />
+        <TextView android:id="@+id/timer_15" style="@style/NotificationButton" android:text="@string/timer_fifteen_minutes" android:contentDescription="@string/set_timer_fifteen_minutes" />
+        <TextView android:id="@+id/timer_30" style="@style/NotificationButton" android:text="@string/timer_thirty_minutes" android:contentDescription="@string/set_timer_thirty_minutes" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="44dp">
+        <TextView android:id="@+id/notification_dim" style="@style/NotificationButton"
+            android:contentDescription="@string/toggle_gradual_dimming" />
+        <TextView android:id="@+id/notification_rhythm" style="@style/NotificationButton"
+            android:contentDescription="@string/toggle_flashlight_rhythm" />
+
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="44dp" android:gravity="center_vertical">
+        <TextView android:id="@+id/dim_rate_minus" style="@style/NotificationButton"
+            android:layout_width="40dp" android:layout_weight="0" android:text="@string/decrease_symbol"
+            android:textSize="24sp" android:contentDescription="@string/decrease_dim_rate" />
+        <TextView android:id="@+id/notification_rate" android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:textColor="#F3CE7B" android:textSize="12sp" />
+        <TextView android:id="@+id/dim_rate_plus" style="@style/NotificationButton"
+            android:layout_width="40dp" android:layout_weight="0" android:text="@string/increase_symbol"
+            android:textSize="24sp" android:contentDescription="@string/increase_dim_rate" />
+        <TextView android:id="@+id/notification_mode" style="@style/NotificationButton"
+            android:layout_width="80dp" android:layout_weight="0"
+            android:contentDescription="@string/change_dimming_mode" />
+    </LinearLayout>
+</LinearLayout>
